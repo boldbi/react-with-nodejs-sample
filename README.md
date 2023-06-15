@@ -34,12 +34,11 @@ The samples require the following to run.
     ![Embed Settings Download](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d27d4cfc-6a3e-4c34-975e-f5f22dea6172)
     ![EmbedConfig Properties](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d6ce925a-0d4c-45d2-817e-24d6d59e0d63)
 
- * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/bold-bi/embedded-bi-samples/tree/315584_Revamping_NodeJSwithReact_Sample) within the application. Please ensure that you have placed it in the application as shown in the following image.
+ * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/boldbi/react-with-nodejs-sample/tree/master) within the application. Please ensure that you have placed it in the application as shown in the following image.
 
-   ![EmbedConfig image](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/0e502536-4c28-4e4d-ba9b-a90c4a0aeaea)
+   ![EmbedConfig image](https://github.com/boldbi/react-with-nodejs-sample/assets/129486688/6dc248bc-306c-497f-9aed-421abb2ca710)
 
  ## Developer IDE
-
 
   * Visual studio code(https://code.visualstudio.com/download)
 
@@ -62,6 +61,8 @@ The samples require the following to run.
   * After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:3000).
     
     ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/36bb7163-1f21-4f76-b347-c9e43fb81b1d)
+
+> **NOTE:** If the API host is already in use, you can modify the port number as per your preference in embed.js and update that Dashboard.js file.
 
 Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-with-node-js/#how-to-run-the-sample) to know how to run the sample.
 
