@@ -5,12 +5,13 @@ var url = require("url");
 var express = require('express');
 var cors = require('cors');
 var app = express();
-var bytes = require('utf8-bytes');
 var crypto = require('crypto');
 const path = require('path');
 app.use(cors());
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
+
+//assign a port number for an API to run,
 const port = 8080;
 
 let appconfig;
@@ -22,8 +23,6 @@ try {
 }
 
 var embedSecret = appconfig.EmbedSecret;
-
-var configjson ={"DashboardId": appconfig.DashboardId, "ServerUrl":appconfig.ServerUrl, "SiteIdentifier": appconfig.SiteIdentifier, "Environment": appconfig.Environment, "EmbedType": appconfig.EmbedType};
 
 var userEmail = appconfig.UserEmail;
 

@@ -1,18 +1,15 @@
 import React from 'react';
 import '../index';
-import querystring from 'querystring';
 import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
 
 
-//NodeJs application would be run on http://localhost:61377/, which needs to be set as `apiHost`
+//NodeJs application would be run on http://localhost:8080, which needs to be set as `apiHost`
 const apiHost="http://localhost:8080";
 
 //Url of the GetDetails action in ValuesController of the NodeJs application
 const authorizationUrl="/embeddetail/get";
 
- var BoldBiObj;
-
-class DashboardListing extends React.Component {
+class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -46,7 +43,7 @@ class DashboardListing extends React.Component {
 
   render() {
     return (
-      <div id="DashboardListing">
+      <div id="Dashboard">
           <div id="viewer-section">
             <div id="dashboard"></div>
           </div>
@@ -55,9 +52,6 @@ class DashboardListing extends React.Component {
   }
 
  async componentDidMount() {
-    var dashboard = undefined;
-    var querystring = require('querystring');
-    var token = "";
     try {
         const response = await fetch(apiHost+"/GetData");
         const data = await response.json();
@@ -70,4 +64,4 @@ class DashboardListing extends React.Component {
       }
     }
 }
-export default DashboardListing;
+export default Dashboard;
