@@ -1,20 +1,19 @@
-# BoldBI Embedding React with NodeJs Sample
+# BoldBI Embedding React with NodeJS Sample
 
-<!-- This Bold BI React with NodeJs sample contains the dashboard embedding samples. In this sample, the `React` application act as the front-end, and the `NodeJs` acts as the back-end application. This sample demonstrates the rendering of dashboard available in your Bold BI server. -->
-This project was created using NodeJS 16.17. This application aims to demonstrate how to render the dashboard available on your Bold BI server.
+This project was created using NodeJS 14.16. This application aims to demonstrate how to render the dashboard available on your Bold BI server.
 
 ## Dashboard view
 
-   ![Dashboard View](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/2a9c309b-d349-4095-8d9e-ea4cb512d6c2)
+   ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/36bb7163-1f21-4f76-b347-c9e43fb81b1d)
  
  ## Requirements to run the demo
 
 The samples require the following to run.
 
- * [Node.js](https://nodejs.org/en/)
+ * [NodeJS](https://nodejs.org/en/)
  * [Visual Studio Code](https://code.visualstudio.com/download)
 
-> **NOTE:** Node.js v14.16 to v18.16 are supported
+> **NOTE:** NodeJS v14.16 to v18.16 are supported
 
 #### Help link
 
@@ -36,8 +35,8 @@ The samples require the following to run.
     ![EmbedConfig Properties](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d6ce925a-0d4c-45d2-817e-24d6d59e0d63)
 
  * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/bold-bi/embedded-bi-samples/tree/315584_Revamping_NodeJSwithReact_Sample) within the application. Please ensure that you have placed it in the application as shown in the following image.
- 
-   ![EmbedConfig image](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/7911b29c-0b65-4f7b-8915-a2f66f6231b2)
+
+   ![EmbedConfig image](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/0e502536-4c28-4e4d-ba9b-a90c4a0aeaea)
 
  ## Developer IDE
 
@@ -46,7 +45,7 @@ The samples require the following to run.
 
  ### Run a Sample Using Visual Studio Code
  
-  * Open the React with NodeJs sample in Visual Studio Code.
+  * Open the React with NodeJS sample in Visual Studio Code.
    
   * Open the terminal in Visual Studio Code and install all dependent packages by executing the following command in the terminal
     
@@ -60,11 +59,11 @@ The samples require the following to run.
       npm start
     ```
     
-  * After executing the command, the application will automatically launch in the default browser.
+  * After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:3000).
     
-    ![Dashboard image](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/2a9c309b-d349-4095-8d9e-ea4cb512d6c2)
+    ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/36bb7163-1f21-4f76-b347-c9e43fb81b1d)
 
-Please refer to the [help documentation]() to know how to run the sample.
+Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-with-node-js/#how-to-run-the-sample) to know how to run the sample.
 
 ## Important notes
 
