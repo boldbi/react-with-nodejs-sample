@@ -36,10 +36,9 @@ The samples require the following to run.
 
  * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/bold-bi/embedded-bi-samples/tree/315584_Revamping_NodeJSwithReact_Sample) within the application. Please ensure that you have placed it in the application as shown in the following image.
 
-   ![EmbedConfig image](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/0e502536-4c28-4e4d-ba9b-a90c4a0aeaea)
+   ![EmbedConfig image](https://github.com/boldbi/react-with-nodejs-sample/assets/129486688/6dc248bc-306c-497f-9aed-421abb2ca710)
 
  ## Developer IDE
-
 
   * Visual studio code(https://code.visualstudio.com/download)
 
