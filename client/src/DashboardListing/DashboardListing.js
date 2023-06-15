@@ -1,6 +1,4 @@
 import React from 'react';
-//import './DashboardListing.css';
-import '../index.css';
 import '../index';
 import querystring from 'querystring';
 import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
