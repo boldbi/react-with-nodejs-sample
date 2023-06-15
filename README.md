@@ -49,13 +49,13 @@ The samples require the following to run.
   * Open the terminal in Visual Studio Code and install all dependent packages by executing the following command in the terminal
     
     ```bash
-    npm install
+       npm install
     ```
     
   * Finally, run the application using the following command.
     
     ```bash
-      npm start
+       npm start
     ```
     
   * After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:3000).
