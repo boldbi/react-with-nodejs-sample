@@ -6,8 +6,8 @@ import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
 //NodeJs application would be run on http://localhost:8080, which needs to be set as `apiHost`
 const apiHost="http://localhost:8080";
 
-//Url of the GetDetails action in ValuesController of the NodeJs application
-const authorizationUrl="/embeddetail/get";
+//Url of the authorizationserver action in ValuesController of the NodeJs application
+const authorizationUrl="/authorizationserver/get";
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -21,25 +21,23 @@ class Dashboard extends React.Component {
       };
 
    renderDashboard(data) {
-    this.dashboard= BoldBI.create({
-      serverUrl: data.ServerUrl+"/" + data.SiteIdentifier,
-      dashboardId: data.DashboardId,
-      embedContainerId: "dashboard",
-      embedType: data.EmbedType,
-      environment: data.Environment,
-      mode:BoldBI.Mode.View,
-      width:"100%",
-      height: window.innerHeight + 'px',
-      expirationTime:100000,
-      authorizationServer: {
-          url: apiHost + authorizationUrl
-      }
-  });
+      this.dashboard= BoldBI.create({
+        serverUrl: data.ServerUrl+"/" + data.SiteIdentifier,
+        dashboardId: data.DashboardId,
+        embedContainerId: "dashboard",
+        embedType: data.EmbedType,
+        environment: data.Environment,
+        mode:BoldBI.Mode.View,
+        width:"100%",
+        height: window.innerHeight + 'px',
+        expirationTime:100000,
+        authorizationServer: {
+            url: apiHost + authorizationUrl
+        }
+      });
 
-  console.log(this.dashboard);
-  this.dashboard.loadDashboard();     
-    
-  }
+      this.dashboard.loadDashboard();         
+    }
 
   render() {
     return (

@@ -26,7 +26,7 @@ var embedSecret = appconfig.EmbedSecret;
 
 var userEmail = appconfig.UserEmail;
 
-app.post('/embeddetail/get',  async function (req, response){
+app.post('/authorizationserver/get',  async function (req, response){
     var embedQuerString = req.body.embedQuerString;
     var dashboardServerApiUrl = req.body.dashboardServerApiUrl;
   
