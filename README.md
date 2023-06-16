@@ -44,7 +44,7 @@ The samples require the following to run.
 
  ### Run a Sample Using Visual Studio Code
  
-  * Open the React with NodeJS sample in Visual Studio Code.
+  * Open the React with NodeJS sample in **Visual Studio Code**.
    
   * Open the terminal in Visual Studio Code and install all dependent packages by executing the following command in the terminal
     
