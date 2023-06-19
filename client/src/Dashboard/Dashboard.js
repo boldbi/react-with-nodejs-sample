@@ -3,10 +3,10 @@ import '../index';
 import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
 
 
-//NodeJs application would be run on http://localhost:8080, which needs to be set as `apiHost`
+//NodeJs application will run on http://localhost:8080, which needs to be set as apiHost.
 const apiHost="http://localhost:8080";
 
-//Url of the authorizationserver action in ValuesController of the NodeJs application
+//Url of the authorizationserver action in the ValuesController of the NodeJs application.
 const authorizationUrl="/authorizationserver/get";
 
 class Dashboard extends React.Component {
