@@ -13,7 +13,7 @@ The samples require the following to run.
  * [NodeJS](https://nodejs.org/en/)
  * [Visual Studio Code](https://code.visualstudio.com/download)
 
-> **NOTE:** NodeJS v14.16 to v18.16 are supported
+> **NOTE:** NodeJS v14.16 to v18.16 are supported.
 
 #### Help link
 
@@ -46,7 +46,7 @@ The samples require the following to run.
  
   * Open the React with NodeJS sample in **Visual Studio Code**.
    
-  * Open the terminal in Visual Studio Code and install all dependent packages by executing the following command in the terminal
+  * Open the terminal in Visual Studio Code and install all dependent packages by executing the following command in the terminal.
     
     ```bash
        npm install
@@ -62,13 +62,12 @@ The samples require the following to run.
     
     ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/36bb7163-1f21-4f76-b347-c9e43fb81b1d)
 
-> **NOTE:** If the API host is already in use, you can modify the port number as per your preference in embed.js and update that Dashboard.js file.
-
+> **NOTE:** If the API host is already in use, modify the port number per your preference in embed.js and update that Dashboard.js file.
 Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-with-node-js/#how-to-run-the-sample) to know how to run the sample.
 
 ## Important notes
 
-It is recommended to not store passwords and sensitive information in configuration files for security reasons, in a real-world application. Instead, you should consider using a secure application, such as Key Vault, to safeguard your credentials.
+In a real-world application, it is recommended not to store passwords and sensitive information in configuration files for security reasons. Instead, you should consider using a secure application, such as Key Vault, to safeguard your credentials.
 
 ## Online demos
 
