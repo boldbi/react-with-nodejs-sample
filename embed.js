@@ -8,10 +8,10 @@ var app = express();
 var crypto = require('crypto');
 const path = require('path');
 app.use(cors());
-// Parse JSON bodies (as sent by API clients)
+//Parse JSON bodies (as sent by API clients).
 app.use(express.json());
 
-//assign a port number for an API to run,
+//Assign a port number for an API to run.
 const port = 8080;
 
 let appconfig;
@@ -19,7 +19,7 @@ try {
   appconfig = JSON.parse(fs.readFileSync('embedConfig.json'));
 } catch (error) {
   console.error('Error: embedConfig.json file not found.');
-  process.exit(1); // Exit the program with a non-zero exit code to indicate an error
+  process.exit(1); //Exit the program with a non-zero exit code to indicate an error.
 }
 
 var embedSecret = appconfig.EmbedSecret;
