@@ -63,6 +63,7 @@ The samples require the following to run.
     ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/36bb7163-1f21-4f76-b347-c9e43fb81b1d)
 
 > **NOTE:** If the API host is already in use, modify the port number per your preference in embed.js and update that Dashboard.js file.
+
 Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-with-node-js/#how-to-run-the-sample) to know how to run the sample.
 
 ## Important notes
