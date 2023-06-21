@@ -6,7 +6,7 @@ This project was created using NodeJS 14.16. This application aims to demonstrat
 
    ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/36bb7163-1f21-4f76-b347-c9e43fb81b1d)
  
- ## Requirements to run the demo
+ ## Prerequisites
 
 The samples require the following to run.
 
