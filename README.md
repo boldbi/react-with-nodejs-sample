@@ -4,16 +4,16 @@ This project was created using NodeJS 14.16. This application aims to demonstrat
 
 ## Dashboard view
 
-   ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/36bb7163-1f21-4f76-b347-c9e43fb81b1d)
+   ![Dashboard view](https://github.com/boldbi/react-with-nodejs-sample/assets/129486688/9608f9e1-99f8-4375-9724-d15820cb690f)
  
  ## Prerequisites
 
 The samples require the following to run.
 
- * [NodeJS](https://nodejs.org/en/)
+ * [Node.js](https://nodejs.org/en/)
  * [Visual Studio Code](https://code.visualstudio.com/download)
 
-> **NOTE:** NodeJS v14.16 to v18.16 are supported.
+> **NOTE:** Node.js v14.16 to v18.16 are supported.
 
 #### Help link
 
@@ -59,8 +59,8 @@ The samples require the following to run.
     ```
     
   * After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:3000).
-    
-    ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129486688/36bb7163-1f21-4f76-b347-c9e43fb81b1d)
+
+    ![Dashboard view](https://github.com/boldbi/react-with-nodejs-sample/assets/129486688/9608f9e1-99f8-4375-9724-d15820cb690f)
 
 > **NOTE:** If the API host is already in use, modify the port number per your preference in embed.js and update that Dashboard.js file.
 
