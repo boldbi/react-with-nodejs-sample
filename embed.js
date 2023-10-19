@@ -57,15 +57,15 @@ function GetSignatureUrl(queryString)
 return gen_hmac;
 }
 app.get('/GetData', (req, res) => {
-  const embedConfigPath = path.join(__dirname, 'embedConfig.json');
-  const jsonData = fs.readFileSync(embedConfigPath, 'utf8');
+  const serverEmbedConfigData = path.join(__dirname, 'embedConfig.json');
+  const jsonData = fs.readFileSync(serverEmbedConfigData, 'utf8');
   const parsedData = JSON.parse(jsonData);
 
-  const configData = {
+  const clientEmbedConfigData = {
     DashboardId: parsedData.DashboardId, ServerUrl: parsedData.ServerUrl, SiteIdentifier: parsedData.SiteIdentifier, EmbedType: parsedData.EmbedType, Environment: parsedData.Environment
   };
 
-  res.send(configData);
+  res.send(clientEmbedConfigData);
 });
 
 app.listen(port, () => {
