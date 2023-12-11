@@ -53,9 +53,10 @@ class Dashboard extends React.Component {
     try {
         const response = await fetch(apiHost+"/GetData");
         const data = await response.json();
-        this.setState({ embedConfig: data });
-        const embedConfig = this.state.embedConfig;
-        this.renderDashboard(embedConfig);
+        this.setState({ embedConfig: data }, () => {
+          const embedConfig = this.state.embedConfig;
+          this.renderDashboard(embedConfig);
+        });
       } catch (error) {
         console.log(error);
         this.setState({ toke: "error", items: "error" });
