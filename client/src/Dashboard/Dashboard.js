@@ -49,18 +49,15 @@ class Dashboard extends React.Component {
     );
   }
 
- async componentDidMount() {
+  async componentDidMount() {
     try {
-        const response = await fetch(apiHost+"/GetData");
-        const data = await response.json();
-        this.setState({ embedConfig: data }, () => {
-          const embedConfig = this.state.embedConfig;
-          this.renderDashboard(embedConfig);
-        });
-      } catch (error) {
-        console.log(error);
-        this.setState({ toke: "error", items: "error" });
-      }
+      const response = await fetch(apiHost + "/GetData");
+      const embedConfig = await response.json();
+      this.renderDashboard(embedConfig);
+    } catch (error) {
+      console.log(error);
+      this.setState({ toke: "error", items: "error" });
     }
+  }
 }
 export default Dashboard;
