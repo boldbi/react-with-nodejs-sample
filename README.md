@@ -65,8 +65,8 @@ The samples require the following to run.
 > **NOTE:** 
 > 1. If the API host is already in use, modify the port number per your preference in embed.js and update that Dashboard.js file.
 > 2. If you are using React version lower than v18.0, you can update the `index.js` file by adding the following line. Ensure that you replace the existing `createRoot` line with the following line.</br>
-     `import ReactDOM from 'react-dom';
-      ReactDOM.render(<App />, document.getElementById('root'));`
+   `import ReactDOM from 'react-dom';`
+   `ReactDOM.render(<App />, document.getElementById('root'));`
 
 Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-with-node-js/#how-to-run-the-sample) to know how to run the sample.
 
