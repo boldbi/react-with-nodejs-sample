@@ -1,6 +1,6 @@
 # BoldBI Embedding React with NodeJS Sample
 
-This project was created using NodeJS 14.16. This application aims to demonstrate how to render the dashboard available on your Bold BI server.
+This project was created using NodeJS 20.15. This application aims to demonstrate how to render the dashboard available on your Bold BI server.
 
 ## Dashboard view
 
