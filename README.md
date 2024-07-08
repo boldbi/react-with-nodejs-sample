@@ -13,7 +13,7 @@ The samples require the following to run.
  * [Node.js](https://nodejs.org/en/)
  * [Visual Studio Code](https://code.visualstudio.com/download)
 
-> **NOTE:** Node.js v14.16 to v18.18 are supported.
+> **NOTE:** Node.js v14.16 to v20.15.0 are supported.
 
 #### Help link
 
