@@ -52,13 +52,13 @@ The samples require the following to run.
        npm install
     ```
 
-  * Finally, run the application using the following command.
+* Finally, run the application using the following command.
 
     ```bash
        npm start
     ```
 
-  * After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., <https://localhost:3000>).
+* After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., <https://localhost:3000>).
 
     ![Dashboard view](https://github.com/boldbi/react-with-nodejs-sample/assets/129486688/9608f9e1-99f8-4375-9724-d15820cb690f)
 
