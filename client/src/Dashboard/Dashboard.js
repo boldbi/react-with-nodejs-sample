@@ -2,12 +2,11 @@ import React from 'react';
 import '../index';
 import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
 
-
 //NodeJs application will run on http://localhost:8080, which needs to be set as apiHost.
 const apiHost="http://localhost:8080";
 
-//Url of the authorizationserver action in the ValuesController of the NodeJs application.
-const authorizationUrl="/authorizationserver/get";
+//Url of the TokenGeneration action in embed.js
+const tokenGenerationUrl = "/tokengeneration";
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -20,24 +19,34 @@ class Dashboard extends React.Component {
         this.BoldBiObj = new BoldBI();
       };
 
-   renderDashboard(data) {
-      this.dashboard= BoldBI.create({
-        serverUrl: data.ServerUrl+"/" + data.SiteIdentifier,
-        dashboardId: data.DashboardId,
-        embedContainerId: "dashboard",
-        embedType: data.EmbedType,
-        environment: data.Environment,
-        mode:BoldBI.Mode.View,
-        width:"100%",
-        height: window.innerHeight + 'px',
-        expirationTime:100000,
-        authorizationServer: {
-            url: apiHost + authorizationUrl
-        }
-      });
+    getEmbedToken() {
+        return fetch(apiHost + tokenGenerationUrl, { // Backend application URL
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({})
+        })
+          .then(response => {
+            if (!response.ok) throw new Error("Token fetch failed");
+            return response.text();
+          });
+      }
+    
+    renderDashboard(data) {
+      this.getEmbedToken()
+        .then(accessToken => {
+          const dashboard = BoldBI.create({
+            serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
+            dashboardId: data.DashboardId,
+            embedContainerId: "dashboard",
+            embedToken: accessToken
+          });
 
-      this.dashboard.loadDashboard();         
-    }
+          dashboard.loadDashboard();
+        })
+        .catch(err => {
+          console.error("Error rendering dashboard:", err);
+        });
+    };
 
   render() {
     return (

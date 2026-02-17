@@ -1,11 +1,9 @@
 var fs = require("fs");
 var http = require("http");
 var https = require("https");
-var url = require("url");
 var express = require('express');
 var cors = require('cors');
 var app = express();
-var crypto = require('crypto');
 const path = require('path');
 app.use(cors());
 //Parse JSON bodies (as sent by API clients).
@@ -15,54 +13,77 @@ app.use(express.json());
 const port = 8080;
 
 let appconfig;
+const configPath = path.join(__dirname, 'embedConfig.json');
+let rawConfig;
 try {
-  appconfig = JSON.parse(fs.readFileSync('embedConfig.json'));
-} catch (error) {
-  console.error('Error: embedConfig.json file not found.');
-  process.exit(1); //Exit the program with a non-zero exit code to indicate an error.
+  rawConfig = fs.readFileSync(configPath, 'utf8');
+} catch (err) {
+  console.error(`Error: cannot read embedConfig.json at ${configPath}:`, err.message);
+  process.exit(1);
+}
+try {
+  if (rawConfig && rawConfig.charCodeAt(0) === 0xFEFF) {
+    rawConfig = rawConfig.slice(1);
+  }
+  rawConfig = rawConfig.trim();
+  appconfig = JSON.parse(rawConfig);
+} catch (err) {
+  console.error(`Error: invalid JSON in embedConfig.json at ${configPath}:`, err.message);
+  process.exit(1);
 }
 
-var embedSecret = appconfig.EmbedSecret;
+app.post('/TokenGeneration', function (req, response) {
+  const embedDetails = {
+    email: appconfig.UserEmail,
+    serverurl: appconfig.ServerUrl,
+    siteidentifier: appconfig.SiteIdentifier,
+    embedsecret: appconfig.EmbedSecret,
+    dashboard: {  // Dashboard ID property is mandatory only when using BoldBI version 14.1.11.
+      id: appconfig.DashboardId
+    }
+  }
 
-var userEmail = appconfig.UserEmail;
+  const parsedUrl = new URL(embedDetails.serverurl);
+  const postData = JSON.stringify(embedDetails);
+  const client = parsedUrl.protocol === 'https:' ? https : http;
+  const options = {
+    hostname: parsedUrl.hostname,
+    port: parsedUrl.port || (parsedUrl.protocol === 'https:' ? 443 : 80),
+    path: `${parsedUrl.pathname}/api/${embedDetails.siteidentifier}/embed/authorize`,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(postData)
+    }
+  };
 
-app.post('/authorizationserver/get',  async function (req, response){
-    var embedQuerString = req.body.embedQuerString;
-    var dashboardServerApiUrl = req.body.dashboardServerApiUrl;
-  
-    embedQuerString += "&embed_user_email=" + userEmail;
-    embedQuerString += "&embed_server_timestamp=" + Math.round((new Date()).getTime() / 1000);
-    var embedSignature = "&embed_signature=" + GetSignatureUrl(embedQuerString);
-    var embedDetailsUrl = "/embed/authorize?" + embedQuerString+embedSignature;
-  
-    var serverProtocol = url.parse(dashboardServerApiUrl).protocol == 'https:' ? https : http;
-    serverProtocol.get(dashboardServerApiUrl+embedDetailsUrl, function(res){
-          var str = '';
-          res.on('data', function (chunk) {
-                 str += chunk;
-           });
-          res.on('end', function () {
-               response.send(str);
-          });
+  const requ = client.request(options, res => {
+    let result = '';
+    res.setEncoding('utf8');
+    res.on('data', chunk => result += chunk);
+    res.on('end', () => {
+      const resultparse = JSON.parse(result); // Parse the response
+      response.send(resultparse?.Data?.access_token);
     });
+  });
+
+  requ.on('error', (e) => {
+    console.error("Error fetching embed token:", e.message);
+  });
+
+  requ.write(postData);
+  requ.end();
 })
 
-function GetSignatureUrl(queryString)
-{
-  var keyBytes = Buffer.from(embedSecret);
-  var hmac = crypto.createHmac('sha256', keyBytes);
-  data = hmac.update(queryString);
-  gen_hmac= data.digest().toString('base64');
-
-return gen_hmac;
-}
 app.get('/GetData', (req, res) => {
-  const serverEmbedConfigData = path.join(__dirname, 'embedConfig.json');
-  const jsonData = fs.readFileSync(serverEmbedConfigData, 'utf8');
-  const parsedData = JSON.parse(jsonData);
+  const parsedData = appconfig;
 
   const clientEmbedConfigData = {
-    DashboardId: parsedData.DashboardId, ServerUrl: parsedData.ServerUrl, SiteIdentifier: parsedData.SiteIdentifier, EmbedType: parsedData.EmbedType, Environment: parsedData.Environment
+    DashboardId: parsedData.DashboardId,
+    ServerUrl: parsedData.ServerUrl,
+    SiteIdentifier: parsedData.SiteIdentifier,
+    EmbedType: parsedData.EmbedType,
+    Environment: parsedData.Environment
   };
 
   res.send(clientEmbedConfigData);
