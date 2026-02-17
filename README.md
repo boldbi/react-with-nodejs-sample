@@ -36,7 +36,7 @@ The samples require the following to run.
 
 ## Developer IDE
 
-* Visual Studio Code(<https://code.visualstudio.com/download>)
+* [Visual Studio Code](<https://code.visualstudio.com/download>)
 
 ### Run a Sample Using Visual Studio Code
 
